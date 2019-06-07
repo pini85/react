@@ -11,7 +11,7 @@ const seasonConfig = {
         iconName: 'snowflake'
     }
 };
-console.log(seasonConfig);
+
 
 const getSeason = (lat, month) => {
     if (month > 2 && month < 9) {
