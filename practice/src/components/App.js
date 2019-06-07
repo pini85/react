@@ -23,7 +23,14 @@ import ParentComponent from './ParentComponent'
 class App extends React.Component {
     state = {yo: ''}
     render() {
-        return <div>I am a class component</div>
+        return (
+            <div>
+                I am a class component
+                <Component />
+            </div>
+           
+
+        ) 
 
     }
 }
