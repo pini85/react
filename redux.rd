@@ -158,3 +158,7 @@ So what we do if we want to delete insert or update an array or object we use me
 
 Strings and numbers cannot be mutable. 
  */
+
+componentDidMount for action creators
+Redux to handle APIS
+
