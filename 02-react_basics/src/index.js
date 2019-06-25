@@ -17,7 +17,7 @@ class App extends React.Component {
     //     // This is the only time we refer to this.state!
     //     this.state = { lat: null, errorMessage: ''};// We must define a value intialilly. We know its a number but we dont have it yet so this is way we put it ias null. Its a number but we dont know what it is.
     // }
-    state = { lat: null,errorMessage: '' };
+    state = { lat: null, errorMessage: '' };
     // As we know we don't need to manually write the constructor method. It gets automatically called. So we can not call it and initialize our state by this syntax and babel will include it in our constructor. This is easier to read.
 
     componentDidMount() {

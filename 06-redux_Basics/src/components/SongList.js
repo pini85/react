@@ -34,7 +34,7 @@ export default connect(mapStateToProps, {
 })(SongList);
 //We pass our state to the connect component
 /*
-We call this connect function which is a react component so it can call the Provider to get the relevant data from the redux Store.
+We call this connect function which is a react-redux component so it can call the Provider to get the relevant data from the redux Store.
 Connect is a funtion that returns a function we invoke the 2nd function with SongList. Hence ()(SongList)
 We're specifically telling this connect component that we want to get a list of songs out of our redux
 store from the provider.
