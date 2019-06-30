@@ -20,7 +20,7 @@ const App = () => {
                     <Header />
                     <Route path="/" exact component={StreamList} />
                     <Route path="/streams/new" exact component={StreamCreate} />
-                    <Route path="/streams/edit" exact component={StreamEdit} />
+                    <Route path="/streams/edit/:id" exact component={StreamEdit} />
                     <Route path="/streams/delete" exact component={StreamDelete} />
                     <Route path="/streams/show" exact component={StreamShow} />
                 </div>
@@ -109,6 +109,14 @@ So when we click on a link tag we are not dumping all of our react and js data.
 SINGLE PAGE APPLICATION
 
 This is where it comes from.We are not making an additional request for a seperate html document when we click on a link. we are only loading a single html document.
+
+Rule for react router:
+We always need to make sure that any component that is going to be shown on a screen is going to be
+designed to work by itself or in isolation.
+So essentially that means that every component that re-act router does is going to show needs to fetch
+its own data.
+We really cannot assume that any given component will get access to some data that might have been loaded
+up previously inside the application.
 
 
  */

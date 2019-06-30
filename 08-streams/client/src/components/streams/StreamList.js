@@ -12,9 +12,7 @@ import {fetchStreams} from '../../actions';
          if(this.props.currentUserId === stream.userId) {
              return (
                  <div className="right floated content">
-                     <button className="ui button primary">
-                         Edit
-                     </button>
+                    <Link to={`/streams/edit/${stream.id}`} className="ui button primary">Edit</Link>
                      <button className="ui button negative">
                          Delete
                      </button>
@@ -47,7 +45,6 @@ import {fetchStreams} from '../../actions';
     }
 
     renderCreate() {
-        console.log(this.props.signedIn)
         if(this.props.signedIn) {
             return (
                 <div style={{ textAlign: 'right'}}>
@@ -77,8 +74,6 @@ import {fetchStreams} from '../../actions';
 }
 
 const mapStateToProps = (state) => {
-
-    console.log(state)
     return { streams: Object.values(state.streams),
              currentUserId: state.auth.userId,
              signedIn: state.auth.isSignedIn
@@ -96,4 +91,11 @@ When we call the action creator, the action creator calls the api to fetch all t
 The dispatch gives it to the reducer.
 The reducer will convert it to an object to our state
 We get that object of streams from our state and we convert it to an array.
+
+We can use 2 different approaches when a user clicks on edit button to communicate what stream does he want to edit
+1)Selection reducer approach
+Like one the first project with song selection (redux basics) when we clicked on a song we updated that song to the selected song reducer with on click.
+2) URL-based selection(ReactRouterDom)
+/stream/edit/:id
+:id = is a variable. It can be anything. because of the : (so we could of put also :anything)We want it to be the id of the stream in this case.
  */
