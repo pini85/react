@@ -41,8 +41,9 @@ export const fetchStream = (id) => async dispatch => {
 };
 
 export const editStream = (id, formValues) => async dispatch => {
-    const response = await streams.put(`/streams/${id}`, formValues) // the values we want it to updatw with.
+    const response = await streams.patch(`/streams/${id}`, formValues) // the values we want it to updatw with.
     dispatch({type: EDIT_STREAM, payload: response.data})
+    history.push('/');
 };
 
 
@@ -61,4 +62,6 @@ We fetch in our state thanks to redux-thunk and take out the userId from the aut
 We then add that together with the formValues to our api.
 
 We want to navigate after we have successfully called the API to our root directory. So we had to create our own history file so the router can navigate there. Please see history.js for more information.
+
+We want to update just a section of the editStream so we put patch request. put resuest is to edit all of the stream. So if we give 1 value it will delete the other values.
  */

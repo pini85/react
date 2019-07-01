@@ -21,7 +21,7 @@ const App = () => {
                     <Route path="/" exact component={StreamList} />
                     <Route path="/streams/new" exact component={StreamCreate} />
                     <Route path="/streams/edit/:id" exact component={StreamEdit} />
-                    <Route path="/streams/delete" exact component={StreamDelete} />
+                    <Route path="/streams/delete/:id" exact component={StreamDelete} />
                     <Route path="/streams/show" exact component={StreamShow} />
                 </div>
             {/* </BrowserRouter> */}
@@ -35,37 +35,7 @@ export default App;
 
 
 /**
- * 
- * const Page1 = () => {
-    
-//     return (
-//         <div>Page 1
-//             <Link to="/pagetwo">Page 2</Link>
-//         </div>
-//     ) 
-// }
-
-// const Page2 = () => {
-  
-//     return (
-//         <div>Page 2
-//             <Link to="/">Page 1</Link>
-//         </div>
-//     ) 
-// }
-
-// const App = () => {
-//     return (
-//         <div>
-//         <BrowserRouter> 
-//           <div>
-//             <Route path="/" exact component={Page1} />
-//             <Route path="/pagetwo"  component={Page2} />
-//           </div>
-//         </BrowserRouter>
-//         </div>
-//     )
-// }
+ 
 BrowserRouter And Route are components
 
 We created an instance of the BrowserRouter.

@@ -1,15 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchStream } from '../../actions';
+import { fetchStream, editStream } from '../../actions';
+import  StreamForm from './StreamForm';
 
 class StreamEdit extends React.Component {
     componentDidMount() {
         this.props.fetchStream(this.props.match.params.id)
     }
 
+    onSubmit = (formValues) => {
+        this.props.editStream(this.props.match.params.id, formValues)
+    }
+
     render() {
         if(this.props.stream) {
-            return <div>{this.props.stream.title}</div>
+            return (
+                <div>
+                    <h3>Edit Stream</h3>
+                    <StreamForm initialValues={{ title: this.props.stream.title, description: this.props.stream.description}} onSubmit={this.onSubmit} />
+                </div>
+            )
         } else {
             return <div>Loading</div>
         }
@@ -22,7 +32,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 export default connect(mapStateToProps,
-    {fetchStream}
+    {fetchStream, editStream}
     )(StreamEdit);
 
 /* 
@@ -48,4 +58,9 @@ We really cannot assume that any given component will get access to some data th
 up previously inside the application.
 
 So we fetch the stream we want and update our state with it.
+
+initialValues
+ReduxForm gives us a prop called initialValues. We cna put on the form values we want if they match the Field name that are the same in the Field component in the reduxForm.
+We just want the title and the description from the object. If we would of done this.props.stream, it would give us also the id and userId. Some apis can give you an error thatr theu dont want them.
+We are passing an initalValue prop to StreamForm. StreamForm is wrapped up with redux-form. Redux-formsees this prop and renders it.
 */
